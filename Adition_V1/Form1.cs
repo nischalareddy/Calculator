@@ -13,9 +13,8 @@ namespace Adition_V1
     public partial class Form1 : Form
     {
         int result = 0;
-        //int resultMul = 1;
-        int count = 0;
-        bool flag = false;
+        bool firstoperation = false;
+        bool newinput = false;
         string lastoperator = "";
 
 
@@ -41,12 +40,12 @@ namespace Adition_V1
             if( button.Text == "+")
             {
 
-                if (count == 0)
+                if (firstoperation == false)
                 {
                     result = 0;
-                    count++;
+                    firstoperation = true;
                 }
-                flag = true;
+                newinput = true;
                 int tbvalue = 0;
                 int.TryParse(tbArg.Text, out tbvalue);
                 LastOperator(tbvalue);
@@ -55,13 +54,13 @@ namespace Adition_V1
             }
             else if( button.Text == "*")
             {
-                if (count == 0)
+                if (firstoperation == false)
                 {
                     result = 1;
-                    count++;
+                    firstoperation = true;
                 }
 
-                flag = true;
+                newinput = true;
                 int tbvalue = 1;
                 int.TryParse(tbArg.Text, out tbvalue);
                 LastOperator(tbvalue);
@@ -76,10 +75,10 @@ namespace Adition_V1
             }
             else
             {
-                if (flag == true)
+                if (newinput == true)
                 {
                     tbArg.Text = button.Text;
-                    flag = false;
+                    newinput = false;
                 }
                 else
                     tbArg.Text = tbArg.Text + button.Text;
