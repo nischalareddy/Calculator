@@ -21,7 +21,7 @@ namespace Adition_V1
         public Form1()
         {
             InitializeComponent();
-
+            this.KeyPreview = true;
         }
         public void LastOperator(int tbvalue)
         {
@@ -33,11 +33,10 @@ namespace Adition_V1
                 result = tbvalue;
             tbArg.Text = result.ToString();
         }
-        private void Button_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
 
-            if( button.Text == "+")
+        public void Calculate(string input)
+        {
+            if (input == "+")
             {
 
                 if (firstoperation == false)
@@ -52,7 +51,7 @@ namespace Adition_V1
                 lastoperator = "+";
 
             }
-            else if( button.Text == "*")
+            else if (input == "*")
             {
                 if (firstoperation == false)
                 {
@@ -66,25 +65,42 @@ namespace Adition_V1
                 LastOperator(tbvalue);
                 lastoperator = "*";
             }
-            else if( button.Text == "=")
+            else if (input == "=")
             {
                 int tbvalue = 0;
                 int.TryParse(tbArg.Text, out tbvalue);
                 LastOperator(tbvalue);
-        
+
             }
             else
             {
                 if (newinput == true)
                 {
-                    tbArg.Text = button.Text;
+                    tbArg.Text = input;
                     newinput = false;
                 }
                 else
-                    tbArg.Text = tbArg.Text + button.Text;
+                    tbArg.Text = tbArg.Text + input;
 
             }
+        }
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Calculate(button.Text);
+        }
 
+        private void KeyPres(object sender, KeyPressEventArgs e)
+        {
+            int inputvalue;
+            if( e.KeyChar >= '0' && e.KeyChar <= '9' )
+            {
+                Calculate(e.KeyChar.ToString());
+            }
+            else if ( e.KeyChar == '+' || e.KeyChar == '*' || e.KeyChar == '=')
+            {
+                Calculate(e.KeyChar.ToString());
+            }
         }
     }
 }

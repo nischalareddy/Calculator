@@ -210,6 +210,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Riya";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPres);
             this.ResumeLayout(false);
             this.PerformLayout();
 
