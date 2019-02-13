@@ -43,6 +43,8 @@
             this.bAdd = new System.Windows.Forms.Button();
             this.bEqual = new System.Windows.Forms.Button();
             this.bmul = new System.Windows.Forms.Button();
+            this.bDivide = new System.Windows.Forms.Button();
+            this.bSub = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbArg
@@ -177,7 +179,7 @@
             // 
             // bmul
             // 
-            this.bmul.Location = new System.Drawing.Point(116, 287);
+            this.bmul.Location = new System.Drawing.Point(169, 287);
             this.bmul.Name = "bmul";
             this.bmul.Size = new System.Drawing.Size(38, 32);
             this.bmul.TabIndex = 14;
@@ -185,11 +187,33 @@
             this.bmul.UseVisualStyleBackColor = true;
             this.bmul.Click += new System.EventHandler(this.Button_Click);
             // 
+            // bDivide
+            // 
+            this.bDivide.Location = new System.Drawing.Point(230, 287);
+            this.bDivide.Name = "bDivide";
+            this.bDivide.Size = new System.Drawing.Size(38, 32);
+            this.bDivide.TabIndex = 15;
+            this.bDivide.Text = "/";
+            this.bDivide.UseVisualStyleBackColor = true;
+            this.bDivide.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // bSub
+            // 
+            this.bSub.Location = new System.Drawing.Point(116, 287);
+            this.bSub.Name = "bSub";
+            this.bSub.Size = new System.Drawing.Size(38, 32);
+            this.bSub.TabIndex = 16;
+            this.bSub.Text = "-";
+            this.bSub.UseVisualStyleBackColor = true;
+            this.bSub.Click += new System.EventHandler(this.Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 379);
+            this.Controls.Add(this.bSub);
+            this.Controls.Add(this.bDivide);
             this.Controls.Add(this.bmul);
             this.Controls.Add(this.bEqual);
             this.Controls.Add(this.bAdd);
@@ -209,7 +233,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Riya";
+            this.Text = "Calculator - By Nischala";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPres);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,6 +256,8 @@
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Button bEqual;
         private System.Windows.Forms.Button bmul;
+        private System.Windows.Forms.Button bDivide;
+        private System.Windows.Forms.Button bSub;
     }
 }
 
